@@ -549,7 +549,8 @@ class MinidumpWriter {
         // Only want to include one mapping per shared lib.
         // Avoid filtering executable mappings.
         (mapping.offset != 0 && !mapping.exec) ||
-        mapping.size < 4096) {  // too small to get a signature for.
+        mapping.size < 4096 ||  // too small to get a signature for.
+        mapping.size > 0xFFFFFFFFULL) { // too large to include in the dump.
       return false;
     }
 
