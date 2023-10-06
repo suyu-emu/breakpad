@@ -87,5 +87,4 @@ src/Makefile
 
 # Ignore directories gclient syncs.
 src/testing
-src/third_party/lss
 src/third_party/protobuf
